@@ -8,13 +8,13 @@ function capitalizeFirstLetter(string) {
 const url = window.location.href;
 var splitUrl = url.split('knowledge-base')[1].split("?")[0].split("/");
 var node = document.getElementsByClassName("breadcrumbs__nav")[0];
+node.innerHTML = "";
 
 for (var i = 0; i < splitUrl.length; i++) {
     if (splitUrl[i]) {
         var crumbText = capitalizeFirstLetter(splitUrl[i].replaceAll("-", " "));
         var childNode = document.createElement("a");
 
-        console.log(i + " " + crumbText)
         if (crumbText == "Guides") {
             childNode.innerHTML = guidesIcon + crumbText + breadCrumbSvg;
         } else if (i == splitUrl.length - 1) {
