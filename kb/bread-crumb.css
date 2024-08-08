@@ -5,8 +5,6 @@
 }
 
 .breadcrumbs__item {
-    background: #fff;
-    color: #333;
     outline: none;
     padding: 0.75em 0.75em 0.75em 1.25em;
     position: relative;
