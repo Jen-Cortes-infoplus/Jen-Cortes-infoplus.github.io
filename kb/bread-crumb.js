@@ -1,3 +1,6 @@
+var guidesIcon = '<i style="padding-right:13px;" class="fas icon fa-solid fa-book"></i>';
+var breadCrumbSvg = '<div class="bread-crumb-svg"><svg width="12" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M10.6817 1.6816l-4.5364 4-4.5364-3.9315" stroke="#d24566" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>';
+
 function capitalizeFirstLetter(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
@@ -8,14 +11,16 @@ var node = document.getElementsByClassName("breadcrumbs__nav")[0];
 
 for (var i = 0; i < splitUrl.length; i++) {
     if (splitUrl[i]) {
-        var crumbText = splitUrl[i].replaceAll("-", " ");
+        var crumbText = capitalizeFirstLetter(splitUrl[i].replaceAll("-", " "));
         var childNode = document.createElement("a");
 
         console.log(i + " " + crumbText)
-        if (crumbText == "guides") {
-            childNode.innerHTML = '<i style="padding-right:8px;" class="fas icon fa-solid fa-book"></i>' + capitalizeFirstLetter(crumbText);
+        if (crumbText == "Guides") {
+            childNode.innerHTML = guidesIcon + crumbText + breadCrumbSvg;
+        } else if (i == splitUrl.length - 1) {
+            childNode.innerHTML = crumbText;
         } else {
-            childNode.innerHTML = capitalizeFirstLetter(crumbText);
+            childNode.innerHTML = crumbText + breadCrumbSvg;
         }
         childNode.href = url;
         childNode.className = "breadcrumbs__item";
