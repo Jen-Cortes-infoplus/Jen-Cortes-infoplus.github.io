@@ -18,3 +18,5 @@ for (var i = 0; i < splitUrl.length; i++) {
         node.appendChild(childNode)
     }
 }
+
+console.log(url);
