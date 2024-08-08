@@ -53,8 +53,7 @@
 }
 
 .bread-crumb-svg {
-    margin-right: 0px;
-    margin-left: 15px;
+    margin-left: 15px !important;
     display: inline-block;
     transform: rotate(-90deg);
     word-break: break-word;
