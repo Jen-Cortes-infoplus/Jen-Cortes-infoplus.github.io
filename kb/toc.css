@@ -18,7 +18,7 @@ h3:target {
     font-size: 2em;
 }
 
-.fas {
+.fas-toc {
     position: relative;
     display: table-cell;
     width: 60px;
