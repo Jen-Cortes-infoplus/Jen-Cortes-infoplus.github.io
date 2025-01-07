@@ -80,42 +80,32 @@ function createTOC() {
     return tocList;
 }
 
-const content = document.getElementsByTagName("main")[0]; //kb-article tinymce-content
-
-// const container = document.createElement('div');
-// container.id = 'toc'
-// container.classList.add("table-of-contents");//
-
-// content.prepend(container);
-
-// const navContainer = document.createElement('nav');
-// navContainer.id = "nav-con";
-// navContainer.classList.add("main-menu");
-
-
-// const tocContainer = document.getElementById('toc');
-// tocContainer.appendChild(navContainer);
-// navContainer.appendChild(createTOC());
-// //tocContainer.appendChild(createToggleBtn());
-
-// const article = document.getElementsByClassName("kb-article")[0];
-// article.appendChild(createTopBtn());
-
+const content = document.getElementsByTagName("main")[0];
 
 const mainMenu = document.createElement('nav');
 mainMenu.id = 'main-menu'
 mainMenu.classList.add("main-menu");
-mainMenu.classList.add("table-of-contents");//
-const tocTitle = document.createElement('i');
-//<i class="fa fa-book fa-2x"></i>
-//tocTitle.style.color="red";
-//tocTitle.innerText = "Table of Contents";
-// fas icon fa-solid fa-book
-tocTitle.classList.add("fas");
-tocTitle.classList.add("icon");
-tocTitle.classList.add("fa-solid");
-tocTitle.classList.add("fa-book");
-//tocTitle.classList.add("fa-2x");//fa-book fa-2x");
-mainMenu.prepend(tocTitle);
+mainMenu.classList.add("table-of-contents");
+
+
 content.prepend(mainMenu);
+const tocTitle = document.createElement("span");
+tocTitle.innerText = "Table of Contents";
+tocTitle.style.color = "orange";
+tocTitle.style.fontWeight = "bold";
+tocTitle.style.marginTop = "10px";
+mainMenu.prepend(tocTitle);
+
+const tocIcon = document.createElement('i');
+tocIcon.classList.add("fas");
+tocIcon.classList.add("icon");
+tocIcon.classList.add("fa-solid");
+tocIcon.classList.add("fa-book");
+tocIcon.classList.add("fa-2x");
+tocTitle.appendChild(tocIcon);
+
+
+
 mainMenu.appendChild(createTOC());
+
+

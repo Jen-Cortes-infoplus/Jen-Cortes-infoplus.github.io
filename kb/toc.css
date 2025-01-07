@@ -1,18 +1,7 @@
-.table-of-contents {
-    float: right;
-    padding:0px;
-    margin: 0px;
-    position: sticky;
-    top: 140px;
-    right: 0;
-    z-index: 2;
-    width: 30%;
-    border-radius: 15px 0px 0px 15px;
-}
-
-
 h3:target {
-    animation: highlight 3s ease;
+    animation: highlight 1s ease;
+    border-radius: 5px;
+    padding:3px;
 }
 
 @keyframes highlight {
@@ -24,10 +13,6 @@ h3:target {
         background: white;
     }
 }
-
-
-
-
 
 .fa-2x {
     font-size: 2em;
@@ -41,25 +26,36 @@ h3:target {
     text-align: center;
     vertical-align: middle;
     font-size: 20px;
-    color:white;
+    color: white;
 }
 
 
 .main-menu:hover,
 nav.main-menu.expanded {
-    width: 225px;
+    width:240px;
     overflow: visible;
     border-radius: 10px 0px 0px 10px;
 }
 
 .main-menu {
+    float: right;
+    padding: 0px;
+    padding-bottom: 25px;
+    padding-right: 5px;
+    margin-right: 1px;
+    padding-left:10px;
+    position: sticky;
+    border-radius: 15px 0px 0px 15px;
+    line-height: 1rem;
+    font-size: .875rem;
     background: #222;
-    top: 140px;
-    right: 0;
+    top: 150px;
+    right: 1px;
     width: 60px;
     overflow: hidden;
-    transition: width .05s linear;
+    transition: width .15s linear;
     z-index: 1000;
+    box-shadow: 10px 5px 15px #000 !important;
 }
 
 .main-menu>ul {
@@ -78,15 +74,13 @@ nav.main-menu.expanded {
     border-collapse: collapse;
     border-spacing: 0;
     color: white;
-    font-family: arial;
-    font-size: 14px;
     text-decoration: none;
-    transition: all .1s linear;
+    transition: all .15s linear;
     outline: none;
     padding: 0.75em 0.75em 0.75em 1.25em;
     position: relative;
     text-decoration: none !important;
-    transition: background 0.2s linear;
+    transition: background 0.15s linear;
 }
 
 .main-menu .nav-icon {
@@ -104,10 +98,6 @@ nav.main-menu.expanded {
     display: table-cell;
     vertical-align: middle;
     width: 190px;
-}
-
-.has-subnav{
-    padding-left:26px;
 }
 
 .no-touch .scrollable.hover {
@@ -140,10 +130,9 @@ nav.main-menu li.active>a,
 .dropdown-menu>.active>a:focus,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {
-    color: rgb(220, 93, 53);
-    /* background-color: #000000; */
-    background: rgba(0,0,0,.75);
-    border: 2px solid transparent;
+    color: rgb(254, 107, 62);
+    background: rgba(24, 24, 24, 0.75);
+    border: 1px solid transparent;
     border-radius: 10px;
-    font-weight: bold;
+    box-shadow: 1 1px #000 !important;
 }
