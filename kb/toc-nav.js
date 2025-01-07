@@ -98,7 +98,7 @@ mainMenu.prepend(tocTitle);
 
 const tocIcon = document.createElement('i');
 tocIcon.classList.add("fas");
-tocIcon.classList.add("fas-toc";
+tocIcon.classList.add("fas-toc");
 tocIcon.classList.add("icon");
 tocIcon.classList.add("fa-solid");
 tocIcon.classList.add("fa-book");
