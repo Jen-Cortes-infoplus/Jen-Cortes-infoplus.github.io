@@ -1,19 +1,13 @@
 .table-of-contents {
     float: right;
-    padding: 1em 1em;
-    margin: 0 0 0 0;
+    padding:0px;
+    margin: 0px;
     position: sticky;
     top: 140px;
     right: 0;
     z-index: 2;
     width: 30%;
-    border-radius: 25px;
-    color: #33475b;
-    font-family: Helvetica, Arial, sans-serif;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    word-break: break-word;
-    box-sizing: border-box;
+    border-radius: 15px 0px 0px 15px;
 }
 
 
@@ -23,7 +17,7 @@ h3:target {
 
 @keyframes highlight {
     from {
-        background: orange;
+        background: rgb(220, 93, 53);
     }
 
     to {
@@ -39,7 +33,7 @@ h3:target {
     font-size: 2em;
 }
 
-.fa {
+.fas {
     position: relative;
     display: table-cell;
     width: 60px;
@@ -47,25 +41,24 @@ h3:target {
     text-align: center;
     vertical-align: middle;
     font-size: 20px;
+    color:white;
 }
 
 
 .main-menu:hover,
 nav.main-menu.expanded {
-    width: 250px;
+    width: 225px;
     overflow: visible;
+    border-radius: 10px 0px 0px 10px;
 }
 
 .main-menu {
-    background: #212121;
-    border-right: 1px solid #e5e5e5;
+    background: #222;
     top: 140px;
     right: 0;
     width: 60px;
     overflow: hidden;
-    -webkit-transition: width .05s linear;
     transition: width .05s linear;
-    -webkit-transform: translateZ(0) scale(1, 1);
     z-index: 1000;
 }
 
@@ -84,12 +77,10 @@ nav.main-menu.expanded {
     display: table;
     border-collapse: collapse;
     border-spacing: 0;
-    color: #999;
+    color: white;
     font-family: arial;
     font-size: 14px;
     text-decoration: none;
-    -webkit-transform: translateZ(0) scale(1, 1);
-    -webkit-transition: all .1s linear;
     transition: all .1s linear;
     outline: none;
     padding: 0.75em 0.75em 0.75em 1.25em;
@@ -113,6 +104,10 @@ nav.main-menu.expanded {
     display: table-cell;
     vertical-align: middle;
     width: 190px;
+}
+
+.has-subnav{
+    padding-left:26px;
 }
 
 .no-touch .scrollable.hover {
@@ -145,6 +140,10 @@ nav.main-menu li.active>a,
 .dropdown-menu>.active>a:focus,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {
-    color: #fff;
-    background-color: #000000;
+    color: rgb(220, 93, 53);
+    /* background-color: #000000; */
+    background: rgba(0,0,0,.75);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-weight: bold;
 }
