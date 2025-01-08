@@ -30,15 +30,15 @@ function createToggleBtn(elemId) {
 }
 
 function createTOC() {
-    const headings = document.querySelectorAll('h1, h3, h4, h5, h6');
+    const headings = document.querySelectorAll('h3, h4, h5, h6');
     const tocList = document.createElement('ul');
     var splitFound = false;
 
     headings.forEach((heading) => {
-        const level = parseInt(heading.tagName.slice(1));
+        const level = parseInt(heading.tagName.slice(1)) - 2; // because we are excluding h1 & h2's minus "2"
         const listItem = document.createElement('li');
         const anchor = document.createElement('a');
-        
+
         if (!heading.textContent.includes("Was this article helpful?") && !splitFound) {
             // Add id to heading if it doesn't have one
             if (!heading.id) {
@@ -49,15 +49,9 @@ function createTOC() {
             anchor.textContent = heading.textContent;
             anchor.classList.add("nav-text");
             listItem.appendChild(anchor);
-            listItem.classList.add("has-subnav");
-
-            // Create the <hr> element
-            //const hr = document.createElement("hr");
-            //const container = document.getElementById("myContainer");
-            //listItem.appendChild(hr);
 
             // Indentation based on heading level
-            listItem.style.paddingLeft = `${(level - 1) * 20}px`;
+            listItem.style.paddingLeft = `${(level - 1) * 15}px`;
 
             // Add to appropriate level in the list
             let currentList = tocList;
@@ -81,20 +75,16 @@ function createTOC() {
 }
 
 const content = document.getElementsByTagName("main")[0];
+const mainMenuContainer = document.createElement('div');
+mainMenuContainer.appendChild(createTOC());
+mainMenuContainer.id = "main-menu-container";
+mainMenuContainer.classList.add("main-menu-container");
+//mainMenuContainer.style.display = "none";
 
-const mainMenu = document.createElement('nav');
-mainMenu.id = 'main-menu'
-mainMenu.classList.add("main-menu");
-mainMenu.classList.add("table-of-contents");
+const mainMenuNav = document.createElement('nav');
+mainMenuNav.id = 'main-menu'
+mainMenuNav.classList.add("main-menu");
 
-
-content.prepend(mainMenu);
-const tocTitle = document.createElement("span");
-tocTitle.innerText = "Table of Contents";
-tocTitle.style.color = "orange";
-tocTitle.style.fontWeight = "bold";
-tocTitle.style.marginTop = "10px";
-mainMenu.prepend(tocTitle);
 
 const tocIcon = document.createElement('i');
 tocIcon.classList.add("fas");
@@ -103,10 +93,28 @@ tocIcon.classList.add("icon");
 tocIcon.classList.add("fa-solid");
 tocIcon.classList.add("fa-book");
 tocIcon.classList.add("fa-2x");
-tocTitle.appendChild(tocIcon);
+mainMenuNav.appendChild(tocIcon);
+
+
+const tocTitle = document.createElement("p");
+tocTitle.classList.add("toc-title");
+tocTitle.classList.add("flip-txt");
+tocTitle.innerText = "Table of Contents";
+mainMenuNav.appendChild(tocTitle);
+
+mainMenuNav.appendChild(mainMenuContainer);
+content.prepend(mainMenuNav);
 
 
 
-mainMenu.appendChild(createTOC());
+const element = document.querySelector('.main-menu');
 
+mainMenuNav.addEventListener('mouseover', function () {
+    mainMenuContainer.classList.add('hover-class');
+    tocTitle.classList.remove('flip-txt');
+});
 
+element.addEventListener('mouseout', function () {
+    mainMenuContainer.classList.remove('hover-class');
+    tocTitle.classList.add('flip-txt');
+});
